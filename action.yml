@@ -1,0 +1,22 @@
+name: Skip required status checks on pull requests.
+description: GitHub Action for skipping required status checks on pull requests.
+inputs:
+  checks:
+    description: The status checks to skip.
+    required: true
+  reason:
+    description: A short description of why the check was skipped.
+    default: Skipping Required Check
+  sha:
+    description: A commit for which to create a status. Only necessary to set if posting to a different repository.
+    default: ${{ github.sha }}
+  github-token:
+    description: The GitHub token to use. Only necessary to set if posting to a different repository.
+    default: ${{ github.token }}
+  repo:
+    description: The repository to skip the check in. Only necessary to set if posting to a different repository.
+    default: ${{ github.repository }}
+
+runs:
+  using: 'node12'
+  main: 'index.js'
