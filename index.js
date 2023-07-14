@@ -9,7 +9,7 @@ const github = require('@actions/github');
   const ownerAndRepo = core.getInput('repo', { required: true })
   const owner = ownerAndRepo.split("/")[0]
   const repo = ownerAndRepo.split("/")[1]
-  const status = 'success'
+  const status = core.getInput('status', { required: true })
   const octokit = new github.GitHub(token)
 
   for (const check of checks) {

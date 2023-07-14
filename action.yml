@@ -4,6 +4,9 @@ inputs:
   checks:
     description: The status checks to skip.
     required: true
+  status:
+    description: The status to set on a check.
+    default: success
   reason:
     description: A short description of why the check was skipped.
     default: Skipping Required Check
