@@ -5,14 +5,14 @@ import { getOctokit } from '@actions/github';
   const token = core.getInput('github-token', { required: true })
   const sha = core.getInput('sha', { required: true })
   const reason = core.getInput('reason', { required: true })
-  const checksInput = core.getInput('checks', { required: true });
+  const checksInput = core.getInput('checks', { required: true })
+  const checks = checksInput.trim().split('\n')
   const ownerAndRepo = core.getInput('repo', { required: true })
   const owner = ownerAndRepo.split("/")[0]
   const repo = ownerAndRepo.split("/")[1]
   const status = 'success'
   const octokit = getOctokit(token)
 
-  const checks = checksInput.includes('\n') ? checksInput.trim().split('\n') : [checksInput.trim()];
   for (const check of checks) {
     await octokit.repos.createCommitStatus({
       owner: owner,
