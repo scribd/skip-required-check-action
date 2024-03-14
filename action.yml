@@ -2,7 +2,7 @@ name: Skip required status checks on pull requests.
 description: GitHub Action for skipping required status checks on pull requests.
 inputs:
   checks:
-    description: The status check(s) to skip.
+    description: The status checks to skip.
     required: true
   reason:
     description: A short description of why the check was skipped.
@@ -19,4 +19,4 @@ inputs:
 
 runs:
   using: 'node20'
-  main: 'dist/index.js'
+  main: 'index.js'
